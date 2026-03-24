@@ -9,11 +9,12 @@ class InfoConnexion{
     private ?Compte $compte;
     private ?Role $role;
 
-    public function __construct(string $login,string $password,?Role $role=null)
+    public function __construct(string $login,string $password,?Role $role=null,?Compte $compte=null)
     {
           $this->login=$login;
           $this->password=$password;
           $this->role=$role;
+          $this->compte=$compte;
        
     }
 
