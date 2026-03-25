@@ -2,9 +2,9 @@
 require_once dirname(__DIR__)."/entity/Compte.php";
 require_once dirname(__DIR__)."/entity/TypeDeCompte.php";
  class CompteEpargne extends Compte{
-       public function __construct(float $solde)
+       public function __construct(float $solde,string $numero)
        {
-          parent::__construct($solde);
+          parent::__construct($solde,$numero);
           $this->type=TypeDeCompte::EPARGNE;
        }
 
