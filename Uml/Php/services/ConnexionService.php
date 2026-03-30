@@ -23,9 +23,9 @@ private function __construct()
     }
 
     public  static function  initialize():void{
-         self::$infosConnexion[]= new InfoConnexion("client","client",Role::CLIENT,new CompteCourant(100000,"CPT001"));
-         self::$infosConnexion[]= new InfoConnexion("client1","client1",Role::CLIENT,new CompteEpargne(100000,"CPT002"));
-         self::$infosConnexion[]= new InfoConnexion("client2","client2",Role::CLIENT,new ComptePro(100000,"CPT003"));
+         self::$infosConnexion[]= new InfoConnexion("client","client",Role::CLIENT,new CompteCourant(100000,"CPT001",100000));
+         self::$infosConnexion[]= new InfoConnexion("client1","client1",Role::CLIENT,new CompteEpargne(100000,"CPT002",0.05));
+         self::$infosConnexion[]= new InfoConnexion("client2","client2",Role::CLIENT,new ComptePro(100000,"CPT003","EntrepriseX",500000));
          self::$infosConnexion[]= new InfoConnexion("admin","admin",Role::ADMIN);
     }
 }

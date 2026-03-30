@@ -21,7 +21,7 @@ public  static function getCompteByNumero(string $numero): ?Compte{
 }
 
  public  static function  initialize():void{
-         self::$comptes[]= new CompteCourant(100000,"CPT001");
+         self::$comptes[]= new CompteCourant(100000,"CPT001",100000);
          self::$comptes[]= new CompteEpargne(100000,"CPT002");
          self::$comptes[]= new ComptePro(100000,"CPT003");
 

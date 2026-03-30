@@ -22,8 +22,8 @@ class ClientView{
            $choix=readline("Entrer le choix ?");
            switch ($choix) {
             case '1':
-                 $solde= $compte->afficheSolde();
-                 echo "Le Solde du Compte :   $solde \n";
+                  $solde= $compte->afficheSolde();
+                 echo  $compte ;
                 break;
             case '2':
                   $operation=self::getTypeOperation();
@@ -46,7 +46,13 @@ class ClientView{
                          # code...
                          break;
                 }
-                    OperationService::addOperation($operation);
+                    if ($operation==null) {
+                        echo "Operation non effectuee \n";
+                    } else {
+                        echo "Operation effectuee avec succes \n";
+                         OperationService::addOperation($operation);
+                    }
+                    
 
                  break;
 

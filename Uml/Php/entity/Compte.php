@@ -2,11 +2,12 @@
 require_once dirname(__DIR__)."/entity/TypeDeCompte.php"; 
 require_once dirname(__DIR__)."/entity/Operation.php"; 
 require_once dirname(__DIR__)."/entity/TypeOperation.php";
- class Compte{
+ abstract class Compte{
     protected float $solde;
     protected string $numero;
     protected TypeDeCompte $type;
     protected array $tabOperations=[];
+    protected int $fraisFixe;
     protected function __construct(float $solde,string $numero)
     {
         $this->solde=$solde;
@@ -28,27 +29,38 @@ require_once dirname(__DIR__)."/entity/TypeOperation.php";
     }
     public function crediter(float $montant): Operation
     {
-       $this->solde+=$montant;
-       $operation= new Operation($montant,$this,TypeOperation::CREDIT);
-       $this->addOperation($operation);
-       return $operation;
+           $frais=$this->calculFrais();
+           $montantTotal=$montant-$frais;
+           $this->solde+=$montantTotal;
+  
+           $operation= new Operation($montant,$this,TypeOperation::CREDIT);
+           $this->addOperation($operation);
+           return $operation;
     }
 
-     public function faireVirement(float $montant,Compte $compteVirement): Operation
+     public function faireVirement(float $montant,Compte $compteVirement): array|null
      {
-        $this->debiter($montant);
-        $compteVirement->crediter($montant);
-        $operation= new Operation($montant,$this,TypeOperation::VIREMENT);
-        $this->addOperation($operation);
-       return $operation;
+        $operationDebit = $this->debiter($montant);
+         if ($operationDebit == null) {
+             return null;
+         }
+        $operationCredit = $compteVirement->crediter($montant);
+        $operationVirement= new Operation($montant,$compteVirement,TypeOperation::VIREMENT);
+        $this->addOperation($operationVirement);
+       return [$operationDebit, $operationCredit,$operationVirement];
      }
 
-     public function debiter(float $montant): Operation
+     public function debiter(float $montant): Operation|null
     {
-       $this->solde-=$montant;
-       $operation=  new Operation($montant,$this,TypeOperation::DEBIT);
+       $frais=$this->calculFrais();
+       $montantTotal=$montant+$frais;
+       if ($montantTotal>$this->solde) {
+          return null;
+       }
+        $this->solde-=$montantTotal;
+        $operation=  new Operation($montantTotal,$this,TypeOperation::DEBIT);
         $this->addOperation($operation);
-       return $operation;
+        return $operation;
     }
 
 
@@ -94,4 +106,11 @@ require_once dirname(__DIR__)."/entity/TypeOperation.php";
      {
         $this->tabOperations[]=$operation;
      }
+
+
+     public function __toString(): string
+     {
+         return "Numero Compte : $this->numero \n Solde : $this->solde \n Type de Compte : ".$this->type->value."\n Frais Fixe : $this->fraisFixe";
+     }
+    abstract function  calculFrais(): float;
 }
