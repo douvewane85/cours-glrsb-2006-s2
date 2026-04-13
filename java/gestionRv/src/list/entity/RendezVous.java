@@ -8,6 +8,9 @@ public class RendezVous {
     private Patient patient;
     private Medecin medecin;
 
+    public RendezVous(LocalDateTime dateHeure) {
+        this.dateHeure = dateHeure;
+    }
     public RendezVous(LocalDateTime dateHeure, Patient patient) {
         this.dateHeure = dateHeure;
         this.patient = patient;
