@@ -1,4 +1,4 @@
-package entity;
+package array.entity;
 
 import java.time.LocalDate;
 
@@ -8,11 +8,6 @@ public class Medecin {
   private  String telephone; 
   private RendezVous[] rendezVous=new RendezVous[N];
   private int nbreRendezVous;
-
-  
-  
-  
-
 public Medecin(String nomPrenom, String telephone) {
     this.nomPrenom = nomPrenom;
     this.telephone = telephone;

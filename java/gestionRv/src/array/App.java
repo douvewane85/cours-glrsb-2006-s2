@@ -1,11 +1,11 @@
+package array;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.Scanner;
 
-import entity.Medecin;
-import entity.RendezVous;
-import service.MedecinService;
-import views.MedecinView;
+import array.entity.Medecin;
+import array.entity.RendezVous;
+import array.service.MedecinService;
+import array.views.MedecinView;
 
 public class App {
     private  static Scanner scanner=new Scanner(System.in);

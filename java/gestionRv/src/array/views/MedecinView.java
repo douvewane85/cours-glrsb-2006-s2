@@ -1,8 +1,8 @@
-package views;
+package array.views;
 
 import java.util.Scanner;
 
-import entity.RendezVous;
+import array.entity.RendezVous;
 
 public final  class MedecinView {
     private  static Scanner scanner=new Scanner(System.in);

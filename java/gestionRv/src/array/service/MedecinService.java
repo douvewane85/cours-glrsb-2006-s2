@@ -1,11 +1,11 @@
-package service;
+package array.service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import entity.Medecin;
-import entity.Patient;
-import entity.RendezVous;
+import array.entity.Medecin;
+import array.entity.Patient;
+import array.entity.RendezVous;
 
 public final class MedecinService {
     private static final int N=100;
