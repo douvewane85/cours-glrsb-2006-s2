@@ -1,0 +1,16 @@
+{
+    "name": "douvewane/console",
+    "description": "Gestion Commande console avec une base de donnee",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "seneaurefonte",
+            "email": "douvewane85@gmail.com"
+        }
+    ],
+    "require": {}
+}
