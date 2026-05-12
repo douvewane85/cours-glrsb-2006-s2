@@ -21,11 +21,11 @@ class Application
             switch ($choice) {
                 case 1:
                     $categorie =AdminView::saisirCategory();
-                    CategorieService::addCategorie($categorie);
+                    CategorieService::ajouterCategorie($categorie);
                     break;
                 case 2:
                     echo "You chose to display categories.\n";
-                    $categories = CategorieService::getCategories();
+                    $categories = CategorieService::listerCategories();
                      AdminView::afficherCategories($categories);
                     break;
                 case 3:

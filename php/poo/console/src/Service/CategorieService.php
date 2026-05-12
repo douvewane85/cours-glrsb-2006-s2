@@ -2,23 +2,23 @@
 namespace App\Service;
 
 use App\Entity\CategorieEntity;
+use App\Repositoty\CategorieRepository;
 
 final class CategorieService
 {
-    private static array $categories = [];
     private function __construct()
     {
         throw new \Exception('Not implemented');
     }
 
-    public static  function  addCategorie(CategorieEntity $categorie): void
+    public static  function  ajouterCategorie(CategorieEntity $categorie): bool
     {
-        self::$categories[] = $categorie;
+       return CategorieRepository::insert($categorie) > 0;
     } 
     
-    public static function getCategories(): array
+    public static function listerCategories(): array
     {
-        return self::$categories;
+       return CategorieRepository::selectAll();
     }
 
   
