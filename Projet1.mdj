@@ -25043,7 +25043,8 @@
 										"$ref": "AAAAAAGcRqp8qMfoNYc="
 									},
 									"name": "categorie",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -29959,7 +29960,8 @@
 										"$ref": "AAAAAAGeFzwZskyLSq4="
 									},
 									"name": "date",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -29968,7 +29970,8 @@
 										"$ref": "AAAAAAGeFzwZskyLSq4="
 									},
 									"name": "montant",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -29977,7 +29980,8 @@
 										"$ref": "AAAAAAGeFzwZskyLSq4="
 									},
 									"name": "numero",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -29986,7 +29990,8 @@
 										"$ref": "AAAAAAGeFzwZskyLSq4="
 									},
 									"name": "client",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -29995,7 +30000,8 @@
 										"$ref": "AAAAAAGeFzwZskyLSq4="
 									},
 									"name": "statut",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30004,7 +30010,8 @@
 										"$ref": "AAAAAAGeFzwZskyLSq4="
 									},
 									"name": "recu",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30103,7 +30110,8 @@
 										"$ref": "AAAAAAGeFz10K1hU0AA="
 									},
 									"name": "qteComde",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30112,7 +30120,8 @@
 										"$ref": "AAAAAAGeFz10K1hU0AA="
 									},
 									"name": "produit",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30121,7 +30130,8 @@
 										"$ref": "AAAAAAGeFz10K1hU0AA="
 									},
 									"name": "commande",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								}
 							]
 						},
@@ -30140,7 +30150,8 @@
 										"$ref": "AAAAAAGeFz41o2REwgs="
 									},
 									"name": "nomPrenom",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30149,7 +30160,8 @@
 										"$ref": "AAAAAAGeFz41o2REwgs="
 									},
 									"name": "telephone",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30158,7 +30170,8 @@
 										"$ref": "AAAAAAGeFz41o2REwgs="
 									},
 									"name": "adresse",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30187,7 +30200,8 @@
 										"$ref": "AAAAAAGeFz+Y33a2RbU="
 									},
 									"name": "montantHTT",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30196,7 +30210,8 @@
 										"$ref": "AAAAAAGeFz+Y33a2RbU="
 									},
 									"name": "datePaiement",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30205,7 +30220,8 @@
 										"$ref": "AAAAAAGeFz+Y33a2RbU="
 									},
 									"name": "numero",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30214,7 +30230,8 @@
 										"$ref": "AAAAAAGeFz+Y33a2RbU="
 									},
 									"name": "montantTTC",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30223,7 +30240,8 @@
 										"$ref": "AAAAAAGeFz+Y33a2RbU="
 									},
 									"name": "TVA",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30232,7 +30250,8 @@
 										"$ref": "AAAAAAGeFz+Y33a2RbU="
 									},
 									"name": "commande",
-									"visibility": "private"
+									"visibility": "private",
+									"type": ""
 								}
 							]
 						},
@@ -30242,7 +30261,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGcRqoIbMb7Mwo="
 							},
-							"name": "Data Model1",
+							"name": "MLD",
 							"ownedElements": [
 								{
 									"_type": "ERDDiagram",
