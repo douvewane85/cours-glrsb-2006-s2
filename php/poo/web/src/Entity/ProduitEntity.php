@@ -10,7 +10,7 @@ class ProduitEntity
     private string $code;
 
     //Initialiser a la rcuperation d'une requete select
-    private int|null $categorieId=null;
+    private int|null $categorie_id=null;
 
     //ManyToOne
     //Modele POO
@@ -87,8 +87,9 @@ class ProduitEntity
      */
     public function getCategorie(): ?CategorieEntity
     {
-        if($this->categorie==null && $this->categorieId!=null ){
-           $this->categorie=CategorieRepository::selectById($this->categorieId);
+        if($this->categorie==null && $this->categorie_id!=null ){
+            $categorieRepository=new CategorieRepository;
+           $this->categorie=$categorieRepository->selectById($this->categorie_id);
         }
         return $this->categorie;
     }
@@ -108,7 +109,7 @@ class ProduitEntity
      */
     public function getCategorieId(): ?int
     {
-        return $this->categorieId;
+        return $this->categorie_id;
     }
 
     /**
@@ -116,7 +117,7 @@ class ProduitEntity
      */
     public function setCategorieId(?int $categorieId): self
     {
-        $this->categorieId = $categorieId;
+        $this->categorie_id = $categorieId;
 
         return $this;
     }

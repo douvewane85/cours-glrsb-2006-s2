@@ -13,12 +13,14 @@ final class ProduitService
 
     public static  function  ajouterProduit(ProduitEntity $produit): bool
     {
-       return ProduitRepository::insert($produit) > 0;
+         $produitRepository=new ProduitRepository();
+         return  $produitRepository->insert($produit) > 0;
     } 
     
     public static function listerProduits(): array
     {
-       return ProduitRepository::selectAll();
+         $produitRepository=new ProduitRepository();
+        return  $produitRepository->selectAll();
     }
 
   

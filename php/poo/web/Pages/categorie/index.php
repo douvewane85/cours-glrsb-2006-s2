@@ -21,6 +21,13 @@
         </header>
         <main>
         <div class="container pt-5">
+            <?php 
+                  
+                $errors=$viewData['errors'] ??[] ;
+                $old=$viewData['old'] ?? [];
+                 
+             
+            ?>
              <form action="http://localhost:8000/categorie/add" method="POST" class="d-flex gap-3 shadow p-3 mb-5 bg-body rounded">
                 <div class="col ">
                     <div class="mb-3">
@@ -29,12 +36,13 @@
                             type="text"
                             name="code"
                             id=""
-                            class="form-control"
+                            value="<?php  echo isset($errors['code']) ? '' :$old['code']??'' ?>"
+                            class="form-control  <?php  echo isset($errors['code'])?'is-invalid':''; ?>"
                             placeholder=""
                             aria-describedby="helpId"
                         />
-                        <small id="helpId" class="text-body-secondary"
-                            >Help text</small
+                        <small id="helpId" class="invalid-feedback"
+                            ><?php echo $errors['code']??''; ?></small
                         >
                     </div>
                 </div>
@@ -45,12 +53,13 @@
                             type="text"
                             name="nom"
                             id=""
-                            class="form-control"
+                            value="<?php echo isset($errors['nom'])? '' :$old['nom']??''; ?>"
+                            class="form-control   <?php  echo isset($errors['nom'])? 'is-invalid' :''; ?>"
                             placeholder=""
                             aria-describedby="helpId"
                         />
-                        <small id="helpId" class="text-body-secondary"
-                            >Help text</small
+                        <small id="helpId" class="invalid-feedback"
+                            ><?php echo $errors['nom']??''; ?></small
                         >
                     </div>
                 </div>
@@ -67,6 +76,8 @@
                     </div>
                 </div>
              </form>
+
+             
              
               <div class="card">
                 <div class="card-header">Liste des Categories</div>
@@ -86,7 +97,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                 $viewData=$viewData??[];
+                                 $viewData=$viewData['data']??[];
                                  foreach ($viewData as  $categorie):
                                 ?>
                                 <tr class="">

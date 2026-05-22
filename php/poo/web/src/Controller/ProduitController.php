@@ -16,22 +16,54 @@ class ProduitController extends Controller{
         }
   
        public function showProduits(){
-            $produits=ProduitService::listerProduits();
-           //require_once dirname(dirname(__DIR__))."/Pages/produit/list.produit.php";
-            $this->render("produit/list.produit.php",$produits);
+             $produits=ProduitService::listerProduits();
+         
+            $this->render("produit/list.produit.php",[
+                 "produits"=>$produits
+              ]);
        }
 
           public function loadForm(){
            
           //  require_once dirname(dirname(__DIR__))."/Pages/produit/add.produit.php";
             $categories = CategorieService::listerCategories();
-            $this->render("produit/add.produit.php",$categories);
+            $this->render("produit/add.produit.php",[
+               "categories" =>$categories,
+            ]);
           }
 
            public function createProduit(){
-              $code=$_POST['code'];
-              $libelle=$_POST['libelle'];
-              $categorieId=$_POST['categorieId'];
+                 $code=trim($_POST['code']??'');
+                 $libelle=trim($_POST['libelle']??'');
+                 $categorieId=$_POST['categorieId']??'0';
+                $errors=[];
+                 
+                   if (empty($code)) {
+                    $errors['code']= "Le code est obligatoire";
+                   }
+                  
+                //R1:nom es obligatoire et unique
+
+                   if (empty($libelle)) {
+                    $errors['libelle']=  "Le Libelle est obligatoire";
+                   }
+
+                    if ($categorieId=="0") {
+                       $errors['categorieId']=  "Veuillez selectionner un categorie";
+                   }
+
+                   if(count($errors)!=0){
+                          $categories = CategorieService::listerCategories();
+                          $this->render("produit/add.produit.php",[
+                               "categories" =>$categories,
+                                "errors"=>$errors,
+                               "old"=>$_POST
+                          ]);
+                          return;
+                     }
+
+
+
               $produit=new ProduitEntity();
                $produit->setCode( $code);
                $produit->setLibelle($libelle);

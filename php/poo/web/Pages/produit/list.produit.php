@@ -54,7 +54,7 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                 $viewData=$viewData??[];
+                                 $viewData=$viewData['produits']??[];
                                  foreach ($viewData as $key => $produit):
                                 ?>
                                 <tr class="">

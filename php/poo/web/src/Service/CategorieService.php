@@ -10,15 +10,15 @@ final class CategorieService
     {
         throw new \Exception('Not implemented');
     }
-
     public static  function  ajouterCategorie(CategorieEntity $categorie): bool
     {
-       return CategorieRepository::insert($categorie) > 0;
+          $cateRepository=new CategorieRepository();
+         return  $cateRepository->insert($categorie) > 0;
     } 
-    
     public static function listerCategories(): array
     {
-       return CategorieRepository::selectAll();
+          $cateRepository=new CategorieRepository();
+          return $cateRepository->selectAll();
     }
 
   
