@@ -16,6 +16,10 @@
                                  <a class="nav-link active  text-white" aria-current="page" href="http://localhost:8000/produit/list">Produits</a>
                                  
                              </div>
+                               <div class="navbar-nav">
+                                 <a class="nav-link active  text-white" aria-current="page" href="http://localhost:8000/commande/form">Nouvelle Commande</a>
+                                 
+                             </div>
                          </div>
                      </div>
    </nav>

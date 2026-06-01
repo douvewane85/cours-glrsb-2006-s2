@@ -32,20 +32,6 @@ class CategorieRepository extends Repository
            }
     }
 
-
-     public  function selectById(int $id): CategorieEntity|null
-    {
-           try {
-                  $sql = "SELECT * FROM  ". $this->tableName." c  where c.id=:id ";
-                  $stmt = $this->pdo->prepare($sql);
-                  $stmt->execute([":id"=>$id]);
-                  $stmt->setFetchMode(\PDO::FETCH_CLASS, CategorieEntity::class);
-                  $this->closeConnexion();
-                  return $stmt->fetch();
-               } catch (\PDOException $e) {
-             echo "Connection failed: " . $e->getMessage();
-               return null;
-              }
-        
-    } 
+  
+    
 }

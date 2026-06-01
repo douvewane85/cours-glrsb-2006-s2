@@ -2,6 +2,7 @@
 namespace App;
 
 use App\Controller\CategorieController;
+use App\Controller\CommandeController;
 use App\Controller\ProduitController;
 
 class Router
@@ -11,10 +12,21 @@ class Router
      
     }
 
+    /*
+       $routes= [
+          "/categorie/index" => [CategorieController::class,"showCategories"],
+          "/produit/list" => [ProduitController::class,"showProduits"],
+          "/produit/form" => [ProduitController::class,"loadForm"],
+          "/categorie/add" => [CategorieController::class,"createCategorie"],
+          "/produit/add" => [ProduitController::class,"createProduit"],
+       ];
+       resolve($uri):
+    */
     public  static  function run():void
     {
               $cagorieCtrl=new CategorieController();
               $produitCtrl=new ProduitController();
+              $cmdeCtrl=new CommandeController();
             
               /*
                 $_SERVER: recuperer toutes les informations du server
@@ -37,6 +49,12 @@ class Router
                 case '/produit/add':
                    $produitCtrl->createProduit();
                     break;
+               case '/commande/form':
+                     $cmdeCtrl->loadForm();
+                     break;
+               case '/commande/search':
+                     $cmdeCtrl->searchClient();
+                     break;
                 default:
                     $cagorieCtrl->showCategories();
                     break;
