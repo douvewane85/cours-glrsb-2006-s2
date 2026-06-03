@@ -55,6 +55,13 @@ class Router
                case '/commande/search':
                      $cmdeCtrl->searchClient();
                      break;
+                case '/commande/create-client':
+                     $cmdeCtrl->createClient();
+                     break;
+                  case '/commande/add-commande':
+                     $cmdeCtrl->addCommande();
+                     break;
+                   
                 default:
                     $cagorieCtrl->showCategories();
                     break;

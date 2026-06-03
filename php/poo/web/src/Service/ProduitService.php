@@ -23,6 +23,13 @@ final class ProduitService
         return  $produitRepository->selectAll();
     }
 
+     public static function recupererProduitParId(int $id): ?ProduitEntity
+    {
+         $produitRepository=new ProduitRepository();
+          return  $produitRepository->selectById($id);
+    }
+
+
   
     
 }

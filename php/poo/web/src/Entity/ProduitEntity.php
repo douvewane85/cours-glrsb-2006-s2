@@ -8,6 +8,8 @@ class ProduitEntity
     private int $id;
     private string $libelle;
     private string $code;
+    private float $prix;
+    private int $qteStock;
 
     //Initialiser a la rcuperation d'une requete select
     private int|null $categorie_id=null;
@@ -24,7 +26,7 @@ class ProduitEntity
     public function __toString(): string
     {
         $nomCategorie= $this->getCategorie()!=null?$this->categorie->getNom() :"";
-        return "Id:$this->id, Libelle :$this->libelle, Code:$this->code, Categorie: ". $nomCategorie;
+        return "{$this->libelle} - Prix:{$this->prix} - Qte:{$this->qteStock} ";
     }
 
     /**
@@ -118,6 +120,32 @@ class ProduitEntity
     public function setCategorieId(?int $categorieId): self
     {
         $this->categorie_id = $categorieId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of prix
+     */
+    public function getPrix(): float
+    {
+        return $this->prix;
+    }
+
+    /**
+     * Get the value of qteStock
+     */
+    public function getQteStock(): int
+    {
+        return $this->qteStock;
+    }
+
+    /**
+     * Set the value of qteStock
+     */
+    public function setQteStock(int $qteStock): self
+    {
+        $this->qteStock = $qteStock;
 
         return $this;
     }

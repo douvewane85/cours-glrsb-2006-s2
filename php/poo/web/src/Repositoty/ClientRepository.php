@@ -18,7 +18,7 @@ use App\Entity\ClientEntity;
     public  function insert(ClientEntity $client): int
     {
            try {
-              $sql = "INSERT INTO " . $this->tableName . " (nom_prenom, telephone, adresse) VALUES (:nomPrenom,:telephone,:adresse)";
+              $sql = "INSERT INTO " . $this->tableName . " (nomPrenom, telephone, adresse) VALUES (:nomPrenom,:telephone,:adresse)";
                $stm= $this->pdo->prepare( $sql);
                $stm->execute([
                   ":nomPrenom"=> $client->getNomPrenom(),

@@ -2,11 +2,10 @@
 namespace App\Entity;
 class ClientEntity
 {
-    private int $id;
-
-    private string $nomPrenom;
-    private string $telephone;
-    private string $adresse;
+    private ?int $id=null;
+    private ?string $nomPrenom=null;
+    private ?string $telephone=null;
+    private ?string $adresse=null;
     public function __construct()
     {
      
@@ -35,7 +34,7 @@ class ClientEntity
     /**
      * Get the value of nomPrenom
      */
-    public function getNomPrenom(): string
+    public function getNomPrenom(): ?string
     {
         return $this->nomPrenom;
     }
@@ -53,7 +52,7 @@ class ClientEntity
     /**
      * Get the value of telephone
      */
-    public function getTelephone(): string
+    public function getTelephone(): ?string
     {
         return $this->telephone;
     }
@@ -71,7 +70,7 @@ class ClientEntity
     /**
      * Get the value of adresse
      */
-    public function getAdresse(): string
+    public function getAdresse():? string
     {
         return $this->adresse;
     }
