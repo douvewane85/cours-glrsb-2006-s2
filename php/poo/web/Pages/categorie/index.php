@@ -13,7 +13,7 @@
                  
              
             ?>
-             <form action="http://localhost:8000/categorie/add" method="POST" class="d-flex gap-3 shadow p-3 mb-5 bg-body rounded">
+             <form action="<?php echo WEBROOT; ?>/categorie/add" method="POST" class="d-flex gap-3 shadow p-3 mb-5 bg-body rounded">
                 <div class="col ">
                     <div class="mb-3">
                         <label for="" class="form-label">Code</label>

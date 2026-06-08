@@ -21,6 +21,7 @@ class CommandeController extends Controller{
                     $_SESSION['statusFormCommande']="disabled";
                     $_SESSION['client']=new ClientEntity();
                     $_SESSION['panier']=[];
+                    $_SESSION['total']=0;
               }
                 $produits=ProduitService::listerProduits();
                 $this->render("commande/add.commande.php",[
@@ -71,6 +72,20 @@ class CommandeController extends Controller{
 
             public function  addCommande(){
                 if ($_POST['btnAction']=="ADD_CMDE") {
+                    //Transaction(ACID)
+                       //-Atomicité (Atomicity)
+                       //-Cohérence (Consistency)
+                       //Isolation (Isolation)
+                       //Durabilité (Durability)
+                          //Tous Passe ==> COMMIT
+                          //Une Erreur ==> RollBack (Effacer toutes les insersions deja effectuees)
+                         //Commandes (insert ...)
+                            $dateCommande=trim($_POST['dateCommande'])??'';
+                            $etatCommande=trim($_POST['etat'])??'';
+                            $total= $_SESSION['total'];
+                         //Lignes de Commandes  (insert ...)
+                            $panier= $_SESSION['panier'];
+                
       
                 
                         # code...
@@ -88,7 +103,7 @@ class CommandeController extends Controller{
                   $produit=ProduitService::recupererProduitParId($produitId);
                   $ligneCmde->setProduit($produit);
                   $_SESSION['panier'][]= $ligneCmde;
-
+                  $_SESSION['total']= $_SESSION['total']+ $ligneCmde->getMontant();
               
                 }
                     $this->redirectUrl("commande/form");

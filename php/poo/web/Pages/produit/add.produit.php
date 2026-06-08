@@ -14,7 +14,7 @@
                 $old=$viewData['old'] ?? []; 
              
             ?>
-            <form action="http://localhost:8000/produit/add" method="POST" class="">
+            <form action="<?php echo WEBROOT; ?>/produit/add" method="POST" class="">
                 <div class="col ">
                     <div class="mb-3">
                         <label for="" class="form-label">Code</label>

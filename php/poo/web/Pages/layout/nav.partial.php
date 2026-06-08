@@ -8,18 +8,25 @@
                          </button>
                          <div class="collapse navbar-collapse" id="navbarID">
                              <div class="navbar-nav">
-                                 <a class="nav-link active text-white"  aria-current="page" href="http://localhost:8000/categorie/index">Categories</a>
+                                 <a class="nav-link active text-white"  aria-current="page" href="<?php echo WEBROOT; ?>/categorie/index">Categories</a>
                                  
                              </div>
 
                               <div class="navbar-nav">
-                                 <a class="nav-link active  text-white" aria-current="page" href="http://localhost:8000/produit/list">Produits</a>
+                                 <a class="nav-link active  text-white" aria-current="page" href="<?php echo WEBROOT; ?>/produit/list">Produits</a>
                                  
                              </div>
+                             <?php if($_SESSION['user']->getRole()=='GESTIONNAIRE'): ?>
                                <div class="navbar-nav">
-                                 <a class="nav-link active  text-white" aria-current="page" href="http://localhost:8000/commande/form">Nouvelle Commande</a>
-                                 
-                             </div>
+                                 <a class="nav-link active  text-white" aria-current="page" href="<?php echo WEBROOT; ?>/commande/form">Nouvelle Commande</a>
+                               </div>
+                            <?php endif ?>
+
+
                          </div>
+                         
                      </div>
+                       <div class="collapse navbar-collapse float-end mr-1" >
+                                <a class="nav-link active  text-white" aria-current="page" href="<?php echo WEBROOT; ?>/auth/logout">Deconnexion</a>
+                       </div>
    </nav>

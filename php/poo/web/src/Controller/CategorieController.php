@@ -49,7 +49,7 @@ class CategorieController extends Controller{
 
                         // header("location:http://localhost:8000/categorie/list");
                         // exit;
-                        $this->redirectUrl("categorie/list");
+                        $this->redirectUrl("categorie/index");
             
 
           }

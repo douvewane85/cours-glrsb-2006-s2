@@ -12,7 +12,8 @@ abstract class Controller{
      }
 
      protected function redirectUrl(string $uri){
-            header("location:http://localhost:8000/$uri");
+             $url=WEBROOT."/$uri";
+              header("location:$url ");
               exit;
      }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use App\Controller\AuthController;
 use App\Controller\CategorieController;
 use App\Controller\CommandeController;
 use App\Controller\ProduitController;
@@ -27,6 +28,7 @@ class Router
               $cagorieCtrl=new CategorieController();
               $produitCtrl=new ProduitController();
               $cmdeCtrl=new CommandeController();
+              $authCtrl=new AuthController();
             
               /*
                 $_SERVER: recuperer toutes les informations du server
@@ -61,9 +63,16 @@ class Router
                   case '/commande/add-commande':
                      $cmdeCtrl->addCommande();
                      break;
+
+                  case '/auth/login':
+                     $authCtrl->login();
+                     break;
                    
+                   case '/auth/logout':
+                     $authCtrl->logout();
+                     break;
                 default:
-                    $cagorieCtrl->showCategories();
+                    $authCtrl->login();
                     break;
               }
               

@@ -11,7 +11,7 @@
                  name=""
                  id=""
                  class="col-1 btn btn-outline-dark  ms-auto"
-                 href="http://localhost:8000/produit/form"
+                 href="<?php echo WEBROOT; ?>/produit/form"
                  role="button"
                 >Nouveau</a
                >

@@ -20,7 +20,7 @@
                     
                           <h3>Recherche Client</h3>
                       
-                                <form action="http://localhost:8000/commande/search" method="POST"  class="d-flex gap-2">
+                                <form action="<?php echo WEBROOT; ?>/commande/search" method="POST"  class="d-flex gap-2">
                                    
                                       <div class="col ">
                                             <div class="mb-3">
@@ -52,7 +52,7 @@
                       
                        
                      <h3>Informations clients</h3>
-                      <form action="http://localhost:8000/commande/create-client" method="POST" class="">
+                      <form action="<?php echo WEBROOT; ?>/commande/create-client" method="POST" class="">
                         <?php 
                             // afficher le fieldset si le client n'existe pas dans la base de données
                             // sinon le masquer
@@ -132,7 +132,7 @@
            
                       
                 
-                             <form action="http://localhost:8000/commande/add-commande" method="POST" class=" ">
+                             <form action="<?php echo WEBROOT; ?>/commande/add-commande" method="POST" class=" ">
                                 <fieldset  <?php echo $_SESSION['statusFormCommande']; ?>  class="w-100  gap-2">  
                                  <div class="row gap-3">
                                     <div class="col-md-5 mb-3">
@@ -273,7 +273,7 @@
                             </div>
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="text-end">Total Commande : 1000 CFA</h4>
+                                        <h4 class="text-end">Total Commande : <?php echo $_SESSION['total']; ?>  CFA</h4>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
