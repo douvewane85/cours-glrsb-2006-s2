@@ -257,8 +257,8 @@
                                                         ?>
                                                         <tr>
                                                             <td><?php echo $ligneCommande->getProduit()->getLibelle()?> </td>
-                                                            <td><?php echo $ligneCommande->getPrixReel() ?></td>
-                                                            <td><?php echo $ligneCommande->getQteCmde() ?> </td>
+                                                            <td><?php echo $ligneCommande->getQteCmde() ?></td>
+                                                            <td><?php echo $ligneCommande->getPrixReel()  ?> </td>
                                                              <td><?php echo $ligneCommande->getMontant() ?></td>
                                                         </tr>
                                                         <?php 
@@ -282,7 +282,7 @@
                                                 <button
                                                         type="submit"
                                                         class="btn btn-block btn-dark  w-100"
-                                                        name="btnAction"
+                                                         name="btnAction"
                                                          value="ADD_CMDE"
                                                     >
                                                         Enregistrer la Commande

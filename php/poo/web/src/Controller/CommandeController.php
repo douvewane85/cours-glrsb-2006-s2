@@ -3,8 +3,10 @@ namespace App\Controller;
 
 use App\Core\Controller;
 use App\Entity\ClientEntity;
+use App\Entity\CommandeEntity;
 use App\Entity\LigneCommande;
 use App\Service\ClientService;
+use App\Service\CommandeService;
 use App\Service\ProduitService;
 
 class CommandeController extends Controller{
@@ -19,6 +21,7 @@ class CommandeController extends Controller{
               if (!isset($_SESSION['statusFormClient'])) {
                     $_SESSION['statusFormClient']="disabled";
                     $_SESSION['statusFormCommande']="disabled";
+                    //$_SESSION['commande']=new Commande();
                     $_SESSION['client']=new ClientEntity();
                     $_SESSION['panier']=[];
                     $_SESSION['total']=0;
@@ -85,14 +88,46 @@ class CommandeController extends Controller{
                             $total= $_SESSION['total'];
                          //Lignes de Commandes  (insert ...)
                             $panier= $_SESSION['panier'];
-                
-      
-                
+                          //client
+                            $client= $_SESSION['client'];
+                          //Validation
+                             //Date est obligatoire et depasse pas la date du jour
+                             //Etat est obligatoire est est (Paye,Impaye )
+                             //Le panier contient au moins un produit
+                      //Enregistrement de la commande 
+                          $commande =new CommandeEntity(
+                              $client, 
+                              $dateCommande, 
+                              $etatCommande,
+                              $total,
+                              $panier
+                          );
+                         // dd($commande);
+                         $result= CommandeService::faireCommande($commande);
+                         if ($result) {
+                         
+                              $_SESSION['statusFormClient']="disabled";
+                              $_SESSION['statusFormCommande']="disabled";
+                              //$_SESSION['commande']=new Commande();
+                              $_SESSION['client']=new ClientEntity();
+                              $_SESSION['panier']=[];
+                              $_SESSION['total']=0;
+                             
+                         }else{
+                           
+                          }
+                          $this->redirectUrl("commande/form");
                         # code...
                 }elseif ($_POST['btnAction']=="ADD_PRODUIT_CMDE") {
                    
-                //Validation
-                  //Prix
+                //Validation du Panier de commande
+                     //Le prix Reel et quantite cmde sont obligatoire
+                     // prix Reel>= au prix du produit
+                     // quantite cmde <= qteStock
+                //Regle Gestion
+                   //RG1: 
+                       //Un produit es ajouter une seule fois dans le panier dans le cas d'un 2ieme ajout
+                       //on met a jour le prix et la qtecmde
 
                   $produitId=trim($_POST['produitId']);
                   $qteCmde=trim($_POST['qte'])??'0';

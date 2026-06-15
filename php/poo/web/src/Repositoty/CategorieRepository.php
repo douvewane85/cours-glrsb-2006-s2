@@ -18,6 +18,7 @@ class CategorieRepository extends Repository
     public  function insert(CategorieEntity $categorie): int
     {
            try {
+              $this->openConnexion();
                  $sql = "INSERT INTO " .  $this->tableName. " (nom, code) VALUES (:nom, :code)";
                  $stmt = $this->pdo->prepare($sql);
                  $stmt->execute([

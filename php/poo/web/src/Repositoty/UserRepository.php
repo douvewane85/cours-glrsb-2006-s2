@@ -18,6 +18,7 @@ use App\Entity\UserEntity;
     public function selectByLogin(string $login): ?UserEntity
     {
         try {
+            $this->openConnexion();
             $sql = "SELECT * FROM " . $this->tableName . " WHERE login = :login";
              $stm = $this->pdo->prepare($sql);
              $stm->execute([":login" => $login]);

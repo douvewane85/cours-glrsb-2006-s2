@@ -8,7 +8,7 @@ abstract class Repository{
      //Exemple : Repository::class =>App\Core\Repository
     protected function __construct()
     {
-         $this->openConnexion();
+       
     }
      protected function openConnexion():void{
          $hote= "127.0.0.1";
@@ -34,6 +34,7 @@ abstract class Repository{
        public  function selectAll(): array
        {
            try {
+                 $this->openConnexion();
                   $sql = "SELECT * FROM " . $this->tableName;
                   $stm= $this->pdo->prepare($sql);
                   $stm->execute();
@@ -48,6 +49,7 @@ abstract class Repository{
       public  function selectById(int $id): object|null
     {
            try {
+                 $this->openConnexion();
                   $sql = "SELECT * FROM  ". $this->tableName." c  where c.id=:id ";
                   $stmt = $this->pdo->prepare($sql);
                   $stmt->execute([":id"=>$id]);

@@ -18,6 +18,7 @@ use App\Entity\ClientEntity;
     public  function insert(ClientEntity $client): int
     {
            try {
+              $this->openConnexion();
               $sql = "INSERT INTO " . $this->tableName . " (nomPrenom, telephone, adresse) VALUES (:nomPrenom,:telephone,:adresse)";
                $stm= $this->pdo->prepare( $sql);
                $stm->execute([
@@ -37,6 +38,7 @@ use App\Entity\ClientEntity;
     public function selectByTelephone(string $telephone): ?ClientEntity
     {
         try {
+              $this->openConnexion();
             $sql = "SELECT * FROM " . $this->tableName . " WHERE telephone = :telephone";
              $stm = $this->pdo->prepare($sql);
              $stm->execute([":telephone" => $telephone]);
